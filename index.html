@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bolest Zad | Rolfterapie David Moc | Všenory</title>
   <meta name="description" content="Rolfterapie David Moc - certifikovaný Rolfterapeut ve Všenorech. Strukturální integrace pro odstranění bolesti zad, šíje a pohybových potíží.">
+  <meta property="og:title" content="Bolest Zad | Rolfterapie David Moc | Všenory">
+  <meta property="og:description" content="rolfterapie, rolfing, úleva od bolesti, zlepšení psychickeho stavu, pomoc při bolesti zad, rehabilitace, pooperační bolesti, bolest hlavy, náprava, skolioza">
+  <meta property="og:url" content="https://www.rolftherapy.cz">
+  <meta property="og:site_name" content="www.rolftherapy.cz">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bolest Zad | Rolfterapie David Moc | Všenory">
+  <meta name="twitter:description" content="rolfterapie, rolfing, úleva od bolesti, zlepšení psychickeho stavu, pomoc při bolesti zad, rehabilitace, pooperační bolesti, bolest hlavy, náprava, skolioza">
+  <link rel="canonical" href="https://www.rolftherapy.cz">
   <link rel="icon" href="assets/logo-32.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,7 +222,7 @@
   </section>
 
   <!-- OTEVÍRACÍ DOBA -->
-  <section id="oteviraci-doba" class="section section--hero-bg">
+  <section id="oteviraci-doba" class="section section--opening-hours">
     <div class="hours-overlay">
       <div class="container">
         <div class="hours-box">
@@ -248,6 +257,39 @@
           <a class="contact-value" href="mailto:info@rolftherapy.cz">info@rolftherapy.cz</a>
         </div>
       </div>
+
+      <form id="contact-form" class="contact-form" novalidate action="contact.php" method="post">
+        <h2 class="section-title">NAPIŠTE NÁM</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-jmeno">Jméno</label>
+            <input type="text" id="f-jmeno" name="jmeno" autocomplete="name" placeholder="Vaše jméno">
+          </div>
+          <div class="form-group">
+            <label for="f-email">E-mail <span class="form-hint">(nebo telefon)</span></label>
+            <input type="email" id="f-email" name="email" autocomplete="email" placeholder="vas@email.cz">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-telefon">Telefon <span class="form-hint">(nebo e-mail)</span></label>
+            <input type="tel" id="f-telefon" name="telefon" autocomplete="tel" placeholder="+420 123 456 789">
+          </div>
+          <div class="form-group">
+            <label for="f-adresa">Adresa</label>
+            <input type="text" id="f-adresa" name="adresa" autocomplete="street-address" placeholder="Ulice, město">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-zprava">Zpráva <span class="form-required">*</span></label>
+          <textarea id="f-zprava" name="zprava" rows="5" placeholder="Napište nám…"></textarea>
+        </div>
+        <div class="form-status" id="form-status" aria-live="polite" role="status"></div>
+        <div class="form-group">
+          <button type="submit" class="btn-submit">Odeslat zprávu</button>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -257,6 +299,11 @@
       <p>© 2024 Rolfterapie David Moc &nbsp;·&nbsp; <a href="mailto:info@rolftherapy.cz">info@rolftherapy.cz</a> &nbsp;·&nbsp; <a href="tel:+420720675304">+420 720 675 304</a></p>
     </div>
   </footer>
+
+  <button class="btn-float" id="btn-napiste-nam" aria-label="Napište nám">
+    <span class="btn-float__icon">&#9993;</span>
+    <span class="btn-float__label">Napište nám</span>
+  </button>
 
   <script type="module" src="js/main.js"></script>
 </body>

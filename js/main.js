@@ -28,3 +28,60 @@ if (carouselEl) {
 
 const galerieEl = document.getElementById('galerie');
 if (galerieEl) new Lightbox(galerieEl);
+
+// Floating "Napište nám" button — scroll to contact form
+const btnFloat = document.getElementById('btn-napiste-nam');
+if (btnFloat) {
+  btnFloat.addEventListener('click', () => {
+    const target = document.getElementById('contact-form');
+    if (!target) return;
+    const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'));
+    const offset = target.getBoundingClientRect().top + window.scrollY - headerH - 24;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+    setTimeout(() => document.getElementById('f-jmeno')?.focus(), 600);
+  });
+}
+
+// Contact form — frontend validation + AJAX submit
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status  = document.getElementById('form-status');
+    const email   = contactForm.email.value.trim();
+    const telefon = contactForm.telefon.value.trim();
+    const zprava  = contactForm.zprava.value.trim();
+
+    const errors = [];
+    if (!zprava) errors.push('Zpráva je povinná.');
+    if (!email && !telefon) errors.push('Vyplňte e-mail nebo telefon.');
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('E-mail má nesprávný formát.');
+    if (telefon && !/^\+?[\d\s\-().]{9,20}$/.test(telefon)) errors.push('Telefon má nesprávný formát.');
+
+    if (errors.length) {
+      status.className = 'form-status form-status--error';
+      status.textContent = errors.join(' ');
+      return;
+    }
+
+    const btn = contactForm.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Odesílám…';
+    status.className = 'form-status';
+    status.textContent = '';
+
+    try {
+      const res  = await fetch('contact.php', { method: 'POST', body: new FormData(contactForm) });
+      const data = await res.json();
+      status.className = 'form-status ' + (data.success ? 'form-status--ok' : 'form-status--error');
+      status.textContent = data.message;
+      if (data.success) contactForm.reset();
+    } catch {
+      status.className = 'form-status form-status--error';
+      status.textContent = 'Chyba připojení. Zkuste to prosím znovu.';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Odeslat zprávu';
+    }
+  });
+}
