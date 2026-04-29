@@ -359,7 +359,7 @@ p:last-child { margin-bottom: 0; }
   background: rgba(10, 52, 119, 0.72);
   padding: 80px 0;
 }
-.hours-box { text-align: center; color: #fff; }
+.hours-box { text-align: center; color: #fff; margin-bottom: 16px; }
 .hours-box h2 {
   color: #fff;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -393,6 +393,15 @@ p:last-child { margin-bottom: 0; }
 .contact-value { color: var(--text-dark); font-size: 0.95rem; }
 a.contact-value { color: var(--blue-mid); }
 a.contact-value:hover { text-decoration: underline; }
+
+/* ===== MAP ===== */
+.map-wrap {
+  margin-top: 2.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.map-wrap iframe { display: block; }
 
 /* ===== CONTACT FORM ===== */
 .contact-form {
