@@ -1,6 +1,6 @@
 export function initNav() {
   const header   = document.getElementById('site-header');
-  const navLinks = Array.from(document.querySelectorAll('.nav-list a'));
+  const navLinks = Array.from(document.querySelectorAll('.nav-list > .list a'));
   const toggle   = document.querySelector('.nav-toggle');
   const navList  = document.querySelector('.nav-list');
   const sections = navLinks

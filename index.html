@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -38,16 +39,26 @@
         </div>
       </div>
       <nav id="main-nav" aria-label="Hlavní navigace">
-        <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">&#9776;</button>
-        <ul class="nav-list" role="list">
-          <li><a href="#oteviraci-doba">OBJEDNAT</a></li>
-          <li><a href="#o-mne">O MNĚ</a></li>
-          <li><a href="#rolfterapie">ROLFTERAPIE</a></li>
-          <li><a href="#oteviraci-doba">OTEVÍRACÍ DOBA</a></li>
-          <li><a href="#galerie">GALERIE</a></li>
-          <li><a href="#cenik">CENÍK</a></li>
-          <li><a href="#kontakt">KONTAKT</a></li>
-        </ul>
+        <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false"><span class="material-icons">menu</span></button>
+        <div class="nav-list">
+          <ul class="nav-list-links" role="list">
+            <li><a href="#oteviraci-doba">OBJEDNAT</a></li>
+            <li><a href="#o-mne">O MNĚ</a></li>
+            <li><a href="#rolfterapie">ROLFTERAPIE</a></li>
+            <li><a href="#oteviraci-doba">OTEVÍRACÍ DOBA</a></li>
+            <li><a href="#galerie">GALERIE</a></li>
+            <li><a href="#cenik">CENÍK</a></li>
+            <li><a href="#kontakt">KONTAKT</a></li>
+            <li class="mobile-only"><a href="#contact-form">NAPIŠTE NÁM</a></li>
+          </ul>
+
+          <div class="mobile-only">
+            <div class="nav-list-contact">
+              <a href="mailto:info@rolftherapy.cz"><span class="material-icons">mail</span>info@rolftherapy.cz</a>
+              <a href="tel:+420733123456"><span class="material-icons">phone</span>+420 733 123 456</a>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -263,7 +274,7 @@
       <div class="map-wrap">
         <iframe
           title="Poloha ordinace"
-          src="https://maps.google.com/maps?q=Brun%C5%A1ov+478%2C+252+31+V%C5%A1enory&output=embed"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=14.282%2C49.919%2C14.316%2C49.934&amp;layer=mapnik&amp;marker=49.9264%2C14.2987"
           width="100%"
           height="340"
           style="border:0;"
@@ -271,6 +282,9 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
+        <a class="btn-navigate" href="https://www.google.com/maps/dir/?api=1&destination=Brun%C5%A1ov+478%2C+252+31+V%C5%A1enory" target="_blank" rel="noopener" aria-label="Spustit navigaci">
+          <span class="material-icons">directions_car</span> Navigovat
+        </a>
       </div>
 
       <form id="contact-form" class="contact-form" novalidate action="contact.php" method="post">
@@ -315,10 +329,10 @@
     </div>
   </footer>
 
-  <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Zpět nahoru" hidden>&#8679;</button>
+  <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Zpět nahoru" hidden><span class="material-icons">arrow_drop_up</span></button>
 
   <button class="btn-float" id="btn-napiste-nam" aria-label="Napište nám">
-    <span class="btn-float__icon">&#9993;</span>
+    <span class="btn-float__icon material-icons">mail</span>
     <span class="btn-float__label">Napište nám</span>
   </button>
 
