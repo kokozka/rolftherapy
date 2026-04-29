@@ -29,13 +29,24 @@ if (carouselEl) {
 const galerieEl = document.getElementById('galerie');
 if (galerieEl) new Lightbox(galerieEl);
 
+// Scroll to top button
+const btnScrollTop = document.getElementById('btn-scroll-top');
+if (btnScrollTop) {
+  window.addEventListener('scroll', () => {
+    btnScrollTop.hidden = window.scrollY < 200;
+  }, { passive: true });
+  btnScrollTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
 // Floating "Napište nám" button — scroll to contact form
 const btnFloat = document.getElementById('btn-napiste-nam');
 if (btnFloat) {
   btnFloat.addEventListener('click', () => {
     const target = document.getElementById('contact-form');
     if (!target) return;
-    const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'));
+    const headerH = document.getElementById('site-header').offsetHeight;
     const offset = target.getBoundingClientRect().top + window.scrollY - headerH - 24;
     window.scrollTo({ top: offset, behavior: 'smooth' });
     setTimeout(() => document.getElementById('f-jmeno')?.focus(), 600);

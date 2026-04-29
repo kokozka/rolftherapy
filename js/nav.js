@@ -7,6 +7,12 @@ export function initNav() {
     .map(a => document.querySelector(a.getAttribute('href')))
     .filter(Boolean);
 
+  function syncHeaderHeight() {
+    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight, { passive: true });
+
   // Sticky shadow on scroll
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
@@ -18,10 +24,7 @@ export function initNav() {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
       if (!target) return;
-      const headerH = parseInt(
-        getComputedStyle(document.documentElement).getPropertyValue('--header-h')
-      );
-      const offset = target.getBoundingClientRect().top + window.scrollY - headerH;
+      const offset = target.getBoundingClientRect().top + window.scrollY - header.offsetHeight;
       window.scrollTo({ top: offset, behavior: 'smooth' });
       navList.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
@@ -53,5 +56,5 @@ export function initNav() {
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
 
-  sections.forEach(s => observer.observe(s));
+  sections.filter(s => s.id !== 'home').forEach(s => observer.observe(s));
 }
